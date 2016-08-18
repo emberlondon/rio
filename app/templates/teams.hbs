@@ -4,7 +4,30 @@
   value={{filter}}
   oninput={{action (mut filter) value="target.value"}}>
 
-{{#each (filter-by model "country_name" filter) as |team|}}
+<label for="sort">Sort by:</label>
+<select id="sort" onchange={{action (mut sort) value="target.value"}}>
+  {{#each-in (hash
+    Place="place"
+    Gold="gold_count"
+    Silver="silver_count"
+    Bronze="bronze_count"
+  ) as |key value|}}
+    <option value={{value}} selected={{eq sort value}}>{{key}}</option>
+  {{/each-in}}
+</select>
+
+<label for="order">Order:</label>
+<select id="order" onchange={{action (mut order) value="target.value"}}>
+  {{#each-in (hash
+    Ascending="asc"
+    Descending="desc"
+  ) as |key value|}}
+    <option value={{value}} selected={{eq order value}}>{{key}}</option>
+  {{/each-in}}
+</select>
+
+
+{{#each (sort-by (filter-by model "country_name" filter) sort order) as |team|}}
   <article>
     <h1>{{world-flag (iso-code team.country_name) 32}} {{team.country_name}}</h1>
     {{#each (list "gold" "silver" "bronze") as |metal|}}
