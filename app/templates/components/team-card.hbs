@@ -1,0 +1,12 @@
+<div class="country-bar">
+  <h1>{{world-flag (iso-code team.country_name) 32}} {{team.country_name}}</h1>
+  <div class="country-bar--country">
+    {{~#each-in counts as |metal count|~}}
+      <div
+        class="country-bar--medal country-bar--medal-{{metal}}"
+        style="width: {{bar-length count}}px">
+        {{get team (concat metal "_count")}}
+      </div>
+    {{~/each-in~}}
+  </div>
+</div>

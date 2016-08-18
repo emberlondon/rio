@@ -27,12 +27,5 @@
 </select>
 
 {{#each (sort-by (filter-by model "country_name" filter) sort order) as |team|}}
-  <div class="country-bar">
-    <h1>{{world-flag (iso-code team.country_name) 32}} {{team.country_name}}</h1>
-    <div class="country-bar--country">
-      {{#each (list "gold" "silver" "bronze") as |metal|}}<div class="country-bar--medal country-bar--medal-{{metal}}" style="width: {{bar-length (get team (concat metal "_count"))}}px;">
-          {{get team (concat metal "_count")}}
-      </div>{{/each}}
-    </div>
-  </div>
+  {{team-card team=team}}
 {{/each}}
