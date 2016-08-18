@@ -1,0 +1,26 @@
+.country-bar {
+  h1 {
+    display: inline-block;
+    width: 7em;
+  }
+  .country-bar--country {
+    display: inline-block;
+  }
+  .country-bar--medal {
+    display: inline-block;
+    height: 3em;
+    text-align: center;
+    color: white;
+  }
+  .country-bar--medal-gold {
+    background: #ffd700;
+    border-radius: 5px 0 0 5px;
+  }
+  .country-bar--medal-silver {
+    background: #c0c0c0;
+  }
+  .country-bar--medal-bronze {
+    background: #cd7f32;
+    border-radius: 0 5px 5px 0;
+  }
+}
