@@ -1,0 +1,17 @@
+<input
+  placeholder="Search…"
+  type="search"
+  value={{filter}}
+  oninput={{action (mut filter) value="target.value"}}>
+
+{{#each (filter-by model "country_name" filter) as |team|}}
+  <article>
+    <h1>{{team.country_name}}</h1>
+    {{#each (list "gold" "silver" "bronze") as |metal|}}
+      <dl>
+        <dt>{{metal}}</dt>
+        <dd>{{get team (concat metal "_count")}}</dd>
+      </dl>
+    {{/each}}
+  </article>
+{{/each}}
