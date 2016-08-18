@@ -6,7 +6,7 @@
 
 {{#each (filter-by model "country_name" filter) as |team|}}
   <article>
-    <h1>{{team.country_name}}</h1>
+    <h1>{{world-flag (iso-code team.country_name) 32}} {{team.country_name}}</h1>
     {{#each (list "gold" "silver" "bronze") as |metal|}}
       <dl>
         <dt>{{metal}}</dt>
