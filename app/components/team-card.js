@@ -26,7 +26,7 @@ export default Ember.Component.extend(InViewportMixin, {
     }
   }),
 
-  didEnterViewport() {
+  didInsertElement() {
     next(() => this.set('open', true));
   }
 });
