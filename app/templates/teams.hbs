@@ -23,7 +23,7 @@
 
   <label for="order" class="ma2 mr0 f6 b">Order:</label>
   <select id="order" onchange={{action (mut order) value="target.value"}}
-    class="ma2 mr3">
+    class="ma2">
     {{#each-in (hash
       Ascending="asc"
       Descending="desc"
@@ -31,6 +31,7 @@
       <option value={{value}} selected={{eq order value}}>{{key}}</option>
     {{/each-in}}
   </select>
+  <a href="https://github.com/emberlondon/rio" class="nowrap f6 b green pa2 pr3">View source</a>
 </header>
 
 <main>
