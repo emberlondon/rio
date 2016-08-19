@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import computed from 'ember-computed';
 import { next } from 'ember-runloop';
-import { barLength } from 'rio/helpers/bar-length';
 import InViewportMixin from 'ember-in-viewport';
 
 export default Ember.Component.extend(InViewportMixin, {

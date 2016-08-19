@@ -4,5 +4,5 @@ export default Ember.Controller.extend({
   queryParams: ['filter', 'sort', 'order'],
   filter: '',
   sort: 'place',
-  order: 'desc'
+  order: 'asc'
 });
