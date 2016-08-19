@@ -1,31 +1,40 @@
-<input
-  placeholder="Search…"
-  type="search"
-  value={{filter}}
-  oninput={{action (mut filter) value="target.value"}}>
+<header class="flex items-center bg-washed-green green">
+  <h1 class="f4 b ma0 mr2 pa2 white bg-green">Rio</h1>
 
-<label for="sort">Sort by:</label>
-<select id="sort" onchange={{action (mut sort) value="target.value"}}>
-  {{#each-in (hash
-    Place="place"
-    Gold="gold_count"
-    Silver="silver_count"
-    Bronze="bronze_count"
-  ) as |key value|}}
-    <option value={{value}} selected={{eq sort value}}>{{key}}</option>
-  {{/each-in}}
-</select>
+  <input
+    placeholder="Search…"
+    type="search"
+    value={{filter}}
+    oninput={{action (mut filter) value="target.value"}}
+    class="flex-auto w-100 ma2 ph3 ba b--green br4">
 
-<label for="order">Order:</label>
-<select id="order" onchange={{action (mut order) value="target.value"}}>
-  {{#each-in (hash
-    Ascending="asc"
-    Descending="desc"
-  ) as |key value|}}
-    <option value={{value}} selected={{eq order value}}>{{key}}</option>
-  {{/each-in}}
-</select>
+  <label for="sort" class="ma2 mr0 f6 b nowrap">Sort by:</label>
+  <select id="sort" onchange={{action (mut sort) value="target.value"}}
+    class="ma2">
+    {{#each-in (hash
+      Place="place"
+      Gold="gold_count"
+      Silver="silver_count"
+      Bronze="bronze_count"
+    ) as |key value|}}
+      <option value={{value}} selected={{eq sort value}}>{{key}}</option>
+    {{/each-in}}
+  </select>
 
-{{#each (sort-by (filter-by model "country_name" filter) sort order) as |team|}}
-  {{team-card team=team}}
-{{/each}}
+  <label for="order" class="ma2 mr0 f6 b">Order:</label>
+  <select id="order" onchange={{action (mut order) value="target.value"}}
+    class="ma2 mr3">
+    {{#each-in (hash
+      Ascending="asc"
+      Descending="desc"
+    ) as |key value|}}
+      <option value={{value}} selected={{eq order value}}>{{key}}</option>
+    {{/each-in}}
+  </select>
+</header>
+
+<main>
+  {{#each (sort-by (filter-by model "country_name" filter) sort order) as |team|}}
+    {{team-card team=team}}
+  {{/each}}
+</main>
