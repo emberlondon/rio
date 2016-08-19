@@ -5,7 +5,7 @@
     {{~#each-in counts as |metal count|~}}
       <div
         class="country-bar--medal country-bar--medal-{{metal}} pa2"
-        style="width: {{bar-length count}}px">
+        style={{bar-length count}}>
         {{get team (concat metal "_count")}}
       </div>
     {{~/each-in~}}
