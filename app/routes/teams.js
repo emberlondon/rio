@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import fetch from 'ember-network/fetch'
+import fetch from 'ember-network/fetch';
 import service from 'ember-service/inject';
 
 export default Ember.Route.extend({

@@ -5,13 +5,17 @@ const NORMALIZED_NAMES = {
   'Great Britain': 'United Kingdom',
   'Russia': 'Russian Federation',
   'Chinese Taipei': 'Taiwan',
-  'North Korea': 'Korea, Democratic People\'s Republic Of'
-}
+  'North Korea': 'Korea, Democratic People\'s Republic Of',
+  'South Korea': 'Korea, Republic Of',
+  'Iran': 'Iran, Islamic Republic Of',
+  'Vietnam': 'Viet Nam',
+  'Venezuela': 'Venezuela, Bolivarian Republic Of'
+};
 
-export function isoCode([countryName]/*, hash*/) {
-  countryName = NORMALIZED_NAMES[countryName] || countryName;
+export function isoCode([name]/*, hash*/) {
+  name = NORMALIZED_NAMES[name] || name;
 
-  const results = CountryData.lookup.countries({name: countryName})
+  const results = CountryData.lookup.countries({ name });
   const result = results[0];
 
   return result && result.alpha2;

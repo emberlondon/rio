@@ -1,5 +1,4 @@
 import { helper } from 'ember-helper';
-import { A } from 'ember-array/utils';
 
 export function sortBy([list, key, dir]) {
   let result = [...list];

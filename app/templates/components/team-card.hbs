@@ -1,6 +1,12 @@
 <div class="country-bar flex items-center pa2 bb b--washed-green">
-  {{world-flag (iso-code team.country_name) 32 class="flex-none"}}
-  <h1 class="f5 m0 ml2 flex-none">{{team.country_name}}</h1>
+  {{#with (iso-code team.country_name) as |iso|}}
+    {{world-flag iso 32 class="flex-none"}}
+  {{else}}
+    <span
+      class="dib bg-washed-green ba b--green"
+      style="width: 32px; height: 22px; box-shadow: 0px 1px 2px rgba(0, 0, 0, .3)"></span>
+  {{/with}}
+  <h1 class="f5 mv0 mh2 near-black">{{team.country_name}}</h1>
   <div class="country-bar--country flex items-center">
     {{~#each-in counts as |metal count|~}}
       <div

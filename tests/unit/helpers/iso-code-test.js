@@ -3,8 +3,11 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | iso code');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
-  let result = isoCode([42]);
-  assert.ok(result);
+  assert.equal(isoCode(['United States']), 'US');
+  assert.equal(isoCode(['North Korea']), 'KP');
+  assert.equal(isoCode(['South Korea']), 'KR');
+  assert.equal(isoCode(['Iran']), 'IR');
+  assert.equal(isoCode(['Vietnam']), 'VN');
+  assert.equal(isoCode(['Venezuela']), 'VE');
 });
