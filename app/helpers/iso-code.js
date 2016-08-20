@@ -9,7 +9,8 @@ const NORMALIZED_NAMES = {
   'South Korea': 'Korea, Republic Of',
   'Iran': 'Iran, Islamic Republic Of',
   'Vietnam': 'Viet Nam',
-  'Venezuela': 'Venezuela, Bolivarian Republic Of'
+  'Venezuela': 'Venezuela, Bolivarian Republic Of',
+  'Kosovo': 'Unknown'
 };
 
 export function isoCode([name]/*, hash*/) {
